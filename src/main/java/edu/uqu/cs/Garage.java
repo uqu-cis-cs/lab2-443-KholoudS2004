@@ -21,6 +21,7 @@ public class Garage{
      * private classType [] varName = new classType[size];
      *
      */
+    private Car[] allcars=new Car[3];
 
     /************ Part 2 **************/
     /**
@@ -31,6 +32,7 @@ public class Garage{
      * public dataType varName= value;
      *
      */
+    public static int countCars=0;
 
     /************ Part 3 **************/
     /**
@@ -45,6 +47,12 @@ public class Garage{
      *     }
      *}
      */
+      public Garage(){
+        for(int i=0;i<allcars.length;i++)
+      {
+      allcars[i]=new Car();
+}
+}
 
     /************ Part 4 **************/
     /**
@@ -59,7 +67,33 @@ public class Garage{
      * Syntax:
      * public void methodName(String m)
      */
+     public void addCar(String model){
+     boolean found=false;
+     for(int i=0;i<countCar;i++)
+     {
+     if(allcars[i].getModel().equals(model))
+     {
+        found =true;
+        allcars[i].moveCarln();
+     }
+     }
+     if(!found)
+     {
+        if(countCars<allcars.length)
+        {
+            Car c=new Car();
+            c.setModel(model);
+            allcars[countCars]=c;
+            allcars[countCars].moveCarln();
+            countCars++;
+        }
+        else 
+     
+     System.out.print("Full garage");
+     }
+}
 
+}
 
     /************ Part 5 **************/
     /**
@@ -71,6 +105,16 @@ public class Garage{
      * public void methodName(String m)
      *
      */
+     public void moveOut(String model){
+        for(int i =0;i<countCars;i++)
+     {
+     if(allcars[i].getModel().equals(model)){
+        allcars[i].moveCarOut();
+     
+     }
+     }
+
+     
 
 
 
@@ -84,8 +128,18 @@ public class Garage{
      * public void methodName(String m)
      *
      */
+     public void moveln(String model){
+        for(int i =0;i<countCars;i++)
+     {
 
-
+     if(allcars[i].getModel().equals(model))
+     {
+        allcars[i].moveCarln();
+     
+     }
+     
+     }
+     }
     /************ Part 7 **************/
     /**
      * Define listCars() to display/list all the cars in the garage;
@@ -95,7 +149,22 @@ public class Garage{
      * public void methodName(String m)
      *
      */
-
+      public void lisCars(){
+      System.out.println("All cars in the Garage are :");
+       for(int i =0;i<countCars;i++)
+       {
+        if (allcars[i].getInOutGarage())
+           System.out.println("car "+(i+1)+": "+allcars[i].getModel());
+         
+         
+       }
+        System.out.println();
+ 
+      }
+     
 
 
 }
+
+
+
